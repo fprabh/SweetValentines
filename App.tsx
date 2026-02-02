@@ -698,12 +698,12 @@ const App: React.FC = () => {
         
         {/* Intro Screen */}
         {gameState === 'intro' && (
-           <div className="text-center pointer-events-auto cursor-pointer animate-pulse-slow p-12 glass-panel rounded-full hover:bg-rose-900/20 transition-colors"
+           <div className="text-center pointer-events-auto cursor-pointer animate-pulse-slow p-8 sm:p-12 glass-panel rounded-full hover:bg-rose-900/20 transition-colors mx-4"
                 onClick={handleEnter}>
-             <h1 className="font-cinzel text-4xl md:text-6xl text-gold mb-4 tracking-widest drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+             <h1 className="font-cinzel text-3xl sm:text-4xl md:text-6xl text-gold mb-4 tracking-widest drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]">
                A Dark Proposal
              </h1>
-             <p className="font-montserrat text-rose-200 text-sm tracking-[0.3em] uppercase opacity-80">
+             <p className="font-montserrat text-rose-200 text-xs sm:text-sm tracking-[0.3em] uppercase opacity-80">
                Click to Begin
              </p>
            </div>
@@ -711,9 +711,9 @@ const App: React.FC = () => {
 
         {/* Game Screen Text */}
         {gameState === 'asking' && (
-          <div className="absolute top-[20%] w-full text-center transition-all duration-300 px-4">
+          <div className="absolute top-[15%] w-full text-center transition-all duration-300 px-3 sm:px-4">
              <h2 
-                className="font-playfair text-2xl md:text-4xl lg:text-5xl text-white mb-6 drop-shadow-lg leading-tight mx-auto max-w-4xl"
+                className="font-playfair text-lg sm:text-2xl md:text-4xl lg:text-5xl text-white mb-6 drop-shadow-lg leading-tight mx-auto max-w-4xl"
                 style={{
                     animation: `pulse ${4 - (intensity * 3.5)}s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
                     transform: `scale(${1 + intensity * 0.2})`
@@ -721,7 +721,7 @@ const App: React.FC = () => {
              >
               {transientYesMessage || getDisplayText()}
              </h2>
-             <p className="font-montserrat text-gold/60 text-xs tracking-widest uppercase mt-8 opacity-50">
+             <p className="font-montserrat text-gold/60 text-xs tracking-widest uppercase mt-6 sm:mt-8 opacity-50">
                {isFlipped ? "SURRENDER" : ""}
              </p>
           </div>
@@ -729,16 +729,16 @@ const App: React.FC = () => {
 
         {/* Victory Screen */}
         {gameState === 'won' && (
-          <div className="text-center animate-float glass-panel p-10 rounded-2xl max-w-2xl mx-4 pointer-events-auto z-50">
-            <h1 className="font-cinzel text-5xl md:text-7xl text-gold mb-6 drop-shadow-[0_0_15px_rgba(212,175,55,0.8)]">
+          <div className="text-center animate-float glass-panel p-6 sm:p-10 rounded-2xl max-w-2xl mx-4 pointer-events-auto z-50">
+            <h1 className="font-cinzel text-4xl sm:text-5xl md:text-7xl text-gold mb-6 drop-shadow-[0_0_15px_rgba(212,175,55,0.8)]">
               OWNED
             </h1>
-            <p className="font-playfair text-xl md:text-2xl text-rose-200 italic mb-8">
+            <p className="font-playfair text-base sm:text-xl md:text-2xl text-rose-200 italic mb-8">
               "Finally. Now, strip and show me."
             </p>
             <button 
               onClick={handleStartOver}
-              className="mt-8 px-6 py-2 border border-rose-900/50 text-rose-900/50 hover:text-rose-500 hover:border-rose-500 transition-colors text-xs rounded-full"
+              className="mt-6 sm:mt-8 px-4 sm:px-6 py-2 border border-rose-900/50 text-rose-900/50 hover:text-rose-500 hover:border-rose-500 transition-colors text-xs rounded-full"
             >
               Start Over
             </button>
@@ -765,7 +765,7 @@ const App: React.FC = () => {
                onClick={(e) => isFlipped ? handleYesClick(e) : handlePrematureClickWithText(e.clientX, e.clientY)}
              >
                <div className="absolute inset-0 backface-hidden flex items-center justify-center bg-rose-700 rounded-lg shadow-[0_0_20px_rgba(234,28,72,0.4)] hover:scale-105 transition-transform">
-                 <span className="font-cinzel font-bold text-white tracking-wider">YES</span>
+                 <span className="font-cinzel font-bold text-white tracking-wider text-sm sm:text-base">YES</span>
                </div>
              </div>
           </div>
@@ -787,12 +787,12 @@ const App: React.FC = () => {
              >
                 {/* FRONT: NO */}
                 <div className="absolute inset-0 backface-hidden flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-lg shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-colors">
-                  <span className="font-cinzel font-bold text-gray-400 hover:text-red-400 tracking-wider">NO</span>
+                  <span className="font-cinzel font-bold text-gray-400 hover:text-red-400 tracking-wider text-sm sm:text-base">NO</span>
                 </div>
 
                 {/* BACK: YES (Flipped State) */}
                 <div className="absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center bg-gold rounded-lg shadow-[0_0_30px_rgba(212,175,55,0.6)]">
-                  <span className="font-cinzel font-bold text-black tracking-widest text-lg">YES</span>
+                  <span className="font-cinzel font-bold text-black tracking-widest text-base sm:text-lg">YES</span>
                 </div>
              </div>
           </div>
